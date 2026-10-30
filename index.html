@@ -1,0 +1,244 @@
+
+{% extends "base.html" %}
+
+{% block title %}Hendrick Store | Premium Electronics & Gadgets{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container hero-grid">
+
+        <div class="hero-content">
+            <span class="eyebrow">THE FUTURE, WITHIN REACH</span>
+
+            <h1>
+                Technology.<br>
+                <span>Beautifully</span> chosen.
+            </h1>
+
+            <p>
+                Discover carefully selected electronics and gadgets
+                designed to make everyday life smarter, simpler and better.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-dark">
+                    Explore collection <span>→</span>
+                </a>
+
+                <a href="#categories" class="text-link">
+                    Browse categories
+                </a>
+            </div>
+
+            <div class="hero-trust">
+                <span>✦ Carefully selected products</span>
+                <span>✦ Modern technology</span>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200"
+                alt="Premium electronics collection"
+            >
+
+            <div class="image-label">
+                <span>HENDRICK COLLECTION</span>
+                <strong>Technology, redefined.</strong>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="benefits">
+    <div class="container benefits-grid">
+
+        <div>
+            <span>✧</span>
+            <div>
+                <strong>Curated technology</strong>
+                <small>Products worth discovering</small>
+            </div>
+        </div>
+
+        <div>
+            <span>◇</span>
+            <div>
+                <strong>Modern essentials</strong>
+                <small>Technology for everyday life</small>
+            </div>
+        </div>
+
+        <div>
+            <span>↗</span>
+            <div>
+                <strong>Shop with confidence</strong>
+                <small>A better shopping experience</small>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="categories-section" id="categories">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">EXPLORE THE STORE</span>
+                <h2>Find your next favourite.</h2>
+            </div>
+
+            <p>Everything you need. Nothing you don't.</p>
+        </div>
+
+        <div class="category-grid">
+
+            <a href="#products" class="category-card"
+               data-category="Audio">
+                <div class="category-icon">♫</div>
+                <h3>Audio</h3>
+                <span>Discover sound →</span>
+            </a>
+
+            <a href="#products" class="category-card"
+               data-category="Gadgets">
+                <div class="category-icon">◈</div>
+                <h3>Gadgets</h3>
+                <span>Explore gadgets →</span>
+            </a>
+
+            <a href="#products" class="category-card"
+               data-category="Wearables">
+                <div class="category-icon">⌚</div>
+                <h3>Wearables</h3>
+                <span>Stay connected →</span>
+            </a>
+
+            <a href="#products" class="category-card"
+               data-category="Computing">
+                <div class="category-icon">▣</div>
+                <h3>Computing</h3>
+                <span>Power your work →</span>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="products-section" id="products">
+    <div class="container">
+
+        <div class="section-heading product-heading">
+            <div>
+                <span class="eyebrow">THE COLLECTION</span>
+                <h2>Discover our products.</h2>
+            </div>
+
+            <span class="product-count">{{ products|length }} products</span>
+        </div>
+
+        <div class="shop-toolbar">
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="All">All</button>
+                <button class="filter-btn" data-filter="Audio">Audio</button>
+                <button class="filter-btn" data-filter="Gadgets">Gadgets</button>
+                <button class="filter-btn" data-filter="Wearables">Wearables</button>
+                <button class="filter-btn" data-filter="Computing">Computing</button>
+            </div>
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input type="search" id="productSearch"
+                       placeholder="Search products...">
+            </div>
+
+        </div>
+
+        <div class="product-grid" id="productGrid">
+
+            {% for product in products %}
+
+            <article class="product-card"
+                     data-category="{{ product.category }}"
+                     data-name="{{ product.name|lower }}">
+
+                <div class="product-image">
+
+                    <img src="{{ product.image }}"
+                         alt="{{ product.name }}"
+                         loading="lazy">
+
+                    <span class="product-tag">{{ product.tag }}</span>
+
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category">
+                        {{ product.category }}
+                    </span>
+
+                    <h3>{{ product.name }}</h3>
+
+                    <div class="price-row">
+
+                        <strong>
+                            R{{ "{:,.2f}".format(product.price) }}
+                        </strong>
+
+                        {% if product.old_price %}
+                        <del>
+                            R{{ "{:,.2f}".format(product.old_price) }}
+                        </del>
+                        {% endif %}
+
+                    </div>
+
+                    <button class="product-button" disabled
+                            title="Shopping cart coming in the next development stage">
+                        Coming soon
+                    </button>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="no-results" id="noResults">
+            No products found. Try another search.
+        </div>
+
+    </div>
+</section>
+
+
+<section class="newsletter">
+    <div class="container newsletter-content">
+
+        <span class="eyebrow">STAY IN THE LOOP</span>
+
+        <h2>Good technology.<br>Great discoveries.</h2>
+
+        <p>
+            Follow Hendrick Store for new products and future collections.
+        </p>
+
+        <a href="#products" class="btn btn-light">
+            Explore the collection →
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}
