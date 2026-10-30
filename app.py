@@ -1,43 +1,43 @@
-
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 products = [
     {
         "id": 1,
-        "name": "Studio Wireless Headphones",
+        "name": "Wireless Noise-Cancelling Headphones",
         "category": "Audio",
-        "price": 1299,
-        "old_price": 1599,
-        "tag": "BESTSELLER",
+        "price": 2499,
+        "old_price": 2999,
+        "tag": "FEATURED",
         "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700"
     },
     {
         "id": 2,
-        "name": "Smartphone Pro",
-        "category": "Gadgets",
-        "price": 8999,
+        "name": "Smart Watch Series 5",
+        "category": "Wearables",
+        "price": 3299,
         "old_price": None,
-        "tag": "NEW ARRIVAL",
-        "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=700"
+        "tag": "NEW",
+        "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=700"
     },
     {
         "id": 3,
-        "name": "Classic Smart Watch",
+        "name": "Fitness Tracker Band",
         "category": "Wearables",
-        "price": 2199,
-        "old_price": 2499,
-        "tag": "POPULAR",
-        "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700"
+        "price": 699,
+        "old_price": 899,
+        "tag": "SALE",
+        "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=700"
     },
     {
         "id": 4,
-        "name": "Ultra Slim Laptop",
+        "name": "Ultrabook Laptop Pro",
         "category": "Computing",
-        "price": 12499,
-        "old_price": None,
-        "tag": "PREMIUM",
+        "price": 18999,
+        "old_price": 19999,
+        "tag": "POPULAR",
         "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700"
     },
     {
