@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Hendrick Store{% endblock %}</title>
+
+    <meta name="description" content="Discover premium electronics and gadgets at Hendrick Store.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="announcement">
+        DISCOVER SOMETHING BETTER. WELCOME TO HENDRICK STORE.
+    </div>
+
+    <header class="header">
+        <div class="container navbar">
+
+            <a href="/" class="logo">
+                HENDRICK<span>.</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="#products">Shop</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#products" class="cart-link">
+                    <span class="cart-icon">♧</span>
+                    <span>Cart</span>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle"
+                        aria-label="Toggle navigation">
+                    ☰
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer" id="about">
+        <div class="container footer-content">
+
+            <div>
+                <a href="/" class="logo footer-logo">
+                    HENDRICK<span>.</span>
+                </a>
+                <p>Technology that moves you forward.</p>
+            </div>
+
+            <div class="footer-right">
+                <p>Premium electronics. Thoughtful choices.</p>
+                <p>© 2026 Hendrick Store. All rights reserved.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
